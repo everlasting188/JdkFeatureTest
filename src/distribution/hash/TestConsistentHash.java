@@ -2,9 +2,10 @@ package distribution.hash;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
- * 测试一致性hash的类
+ * 测试一致性hash的类，相关类还有一定的bug
  */
 public class TestConsistentHash {
 
@@ -43,7 +44,7 @@ public class TestConsistentHash {
 	public static void testBigData() {
 		List<PhysicalNode> nodes = new ArrayList<>();
 
-		for (int i = 0; i < 20; i++) {
+		for (int i = 1; i < 21; i++) {
 			TestCache cacheMap = new TestCache();
 			PhysicalNode node = new PhysicalNode(5*i, cacheMap);
 			nodes.add(node);
@@ -51,7 +52,9 @@ public class TestConsistentHash {
 
 		ConsistentHash hash = new ConsistentHash(nodes);
 		for (int i = 0; i < 100000; i++) {
-			hash.put("" +i, ""+i+" =----");
+			Random  random = new Random();
+			int value = random.nextInt();
+			hash.put("" +value, ""+value+" =----");
 		}
 		
 		System.out.println("============before remove data================");
@@ -59,12 +62,16 @@ public class TestConsistentHash {
 			System.out.println(node.getNodeId()+":"+node.size());
 		}
 		
-		System.out.println("============after remove data================");
 		PhysicalNode deletNode = new PhysicalNode(5,null);
-		for (int i = 100000; i < 200000; i++) {
-			hash.put("" +i, ""+i+" =----");
-		}
 		hash.removeNode(deletNode);
+		
+		System.out.println("============after remove data================");
+		for (int i = 100000; i < 300000; i++) {
+			Random  random = new Random();
+			int value = random.nextInt();
+			hash.put("" +value, ""+value+" =----");
+		}
+		
 		for (PhysicalNode node:nodes) {
 			System.out.println(node.getNodeId()+":"+ node.size());
 		}

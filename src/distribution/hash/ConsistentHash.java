@@ -23,7 +23,22 @@ public class ConsistentHash implements Map<String, Object>{
 	 * @param node
 	 */
 	public void removeNode(PhysicalNode node){
+		//移除对应的对象，然后如果有数据需要重新缓冲的话，会放置在下一个节点，不命中后引起数据缓冲的迁移
 		hashRing.remove(node);
+	}
+	
+
+	/**
+	 * 增加对应的节点
+	 * @param node
+	 */
+	public void addNode(PhysicalNode node){
+		/**
+		 * 增加节点，后续对应的数据会分布到这个Node上
+		 * 1)对于一些key会因为增加后不命中，需要从数据库中填充
+		 * 2）如果增加以后重新删除，会引起一些弱的不一致性
+		 */
+		hashRing.add(node);
 	}
 	
 	@Override

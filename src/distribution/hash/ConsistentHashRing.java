@@ -14,6 +14,8 @@ public class ConsistentHashRing<T> {
 	private final HashFunction hashFunction;
 	//对应一个节点有多少个虚拟节点
 	private final int numberOfReplicas;
+	//当前增加虚拟节点的步长，平均分配
+	private final int step = 20;
 	//排序的一个环
 	private final SortedMap<Integer, T> circle = new TreeMap<Integer, T>();
 
@@ -32,13 +34,13 @@ public class ConsistentHashRing<T> {
 
 	public void add(T node) {
 		for (int i = 0; i < numberOfReplicas; i++) {
-			circle.put(hashFunction.hash(node.toString() + i), node);//hash值到node的映射,hash函数很重要
+			circle.put(hashFunction.hash(node.toString() + (i*step)), node);//hash值到node的映射,hash函数很重要
 		}
 	}
 
 	public void remove(T node) {
 		for (int i = 0; i < numberOfReplicas; i++) {
-			circle.remove(hashFunction.hash(node.toString() + i));
+			circle.remove(hashFunction.hash(node.toString() + (i*step)));
 		}
 		System.out.println("after delete nodes size is:" + circle.size());
 	}
