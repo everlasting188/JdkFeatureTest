@@ -1,4 +1,4 @@
-package readwritelock;
+package lock.readwritelock;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

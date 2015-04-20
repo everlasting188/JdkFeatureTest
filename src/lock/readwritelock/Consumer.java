@@ -1,4 +1,4 @@
-package readwritelock;
+package lock.readwritelock;
 
 public class Consumer extends Thread {
     private int neednum;                //生产产品的数量

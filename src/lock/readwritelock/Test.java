@@ -1,4 +1,4 @@
-package readwritelock;
+package lock.readwritelock;
 
 public class Test {
 	
