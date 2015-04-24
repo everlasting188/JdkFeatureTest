@@ -6,3 +6,6 @@ http://ifeve.com/java_lock_see4/
 	
 源码剖析AQS在几个同步工具类中的使用
 	http://ifeve.com/abstractqueuedsynchronizer-use/
+	
+java相关基础题和实站题
+	http://ifeve.com/neitui/ 
