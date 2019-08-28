@@ -20,6 +20,11 @@
             <artifactId>sdoapi</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.asher-stern</groupId>
+            <artifactId>CRF</artifactId>
+            <version>1.2.0</version>
+        </dependency>
     </dependencies>
 
     <build>
