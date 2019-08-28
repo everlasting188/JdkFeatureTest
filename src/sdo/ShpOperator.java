@@ -1,6 +1,5 @@
 package sdo;
 
-import oracle.spatial.util.ShapefileReaderJGeom;
 
 //SHP²Ù×÷º¯Êý
 public class ShpOperator {

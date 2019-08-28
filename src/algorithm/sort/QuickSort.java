@@ -1,6 +1,5 @@
 package algorithm.sort;
 
-import oracle.spatial.network.PartitionCache;
 
 public class QuickSort {
 
