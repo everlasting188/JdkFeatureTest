@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.zyq</groupId>
-    <artifactId>jdk_feature</artifactId>
+    <artifactId>jdk-new-feature</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>jdk_feature</name>
+    <name>jdk-new-feature</name>
 
     <dependencies>
         <dependency>
@@ -55,12 +55,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>oracle</id>
-            <name>oracle spital</name>
-            <url>http://maven.geomajas.org/</url>
-        </repository>
-    </repositories>
 </project>
